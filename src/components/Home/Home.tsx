@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Background from '../../assets/images/Sunrise.jpg';
+import { Link } from 'react-router-dom';
 
 interface Props{
     title: string;
@@ -69,7 +70,7 @@ export const Home = ( props:Props) => {
                     </h1>
                     <ul className={ `${classes.navigation} ${classes.logo_navigation}` }>
                         <li>
-                            <a href="/home" className={classes.nav_a}>Home</a>
+                            <a href="/" className={classes.nav_a}>Home</a>
                         </li>
                         <li>
                             <a href="/contact" className={classes.nav_a}>Contact</a>
@@ -83,8 +84,10 @@ export const Home = ( props:Props) => {
             <main className={classes.main}>
                 <div className={classes.main_text}>
                     <h1>{ props.title }</h1>
-                    <p>This Is Me</p>
-                    <Button color='primary' variant="contained">Click Me</Button>
+                    <p>WELCOME!</p>
+                    <Link to='/resume_projects'> 
+                        <Button color='primary' variant="contained">Check Out My Work</Button>
+                    </Link>
                 </div>
             </main>
         </div>

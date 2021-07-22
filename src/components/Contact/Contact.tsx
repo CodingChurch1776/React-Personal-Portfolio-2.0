@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Background from '../../assets/images/Sunrise.jpg';
+import { Link } from 'react-router-dom';
 
 interface Props{
     title: string;
@@ -52,6 +53,34 @@ const useStyles = makeStyles({
         left: '50%',
         transform: 'translate(-50%, -50%)',
         color: 'white'
+    },
+    form_main: {
+        display: 'inline-block',
+        
+    },
+    master_form_div: {
+        display: 'block',
+        text_align: 'center'
+
+    },
+    form_div: {
+        display: 'table-row'
+    },
+
+    message_div: {
+        width: '500px',
+        height: '200px'
+    },
+
+    label: {
+        display: 'table-cell',
+        marginBottom: '10px',
+        paddingRight: '10px'
+    },
+    input: {
+        display: 'table-cell',
+        marginBottom: '10px',
+        
     }
     
 })
@@ -70,7 +99,7 @@ export const Contact = ( props:Props) => {
                     </h1>
                     <ul className={ `${classes.navigation} ${classes.logo_navigation}` }>
                         <li>
-                            <a href="/home" className={classes.nav_a}>Home</a>
+                            <a href="/" className={classes.nav_a}>Home</a>
                         </li>
                         <li>
                             <a href="/contact" className={classes.nav_a}>Contact</a>
@@ -84,9 +113,31 @@ export const Contact = ( props:Props) => {
             <main className={classes.main}>
                 <div className={classes.main_text}>
                     <h1>Contact Me</h1>
+                    <div className={classes.master_form_div}>
+                        <form action="" method="get" className={classes.form_main}>
+                            <div className={classes.form_div}>
+                                <label htmlFor="name">Enter your name: </label>
+                                <input type="text" name="name" id="name" required/>
+                            </div>
+                            <div className={classes.form_div}>
+                                <label htmlFor="email">Enter your email: </label>
+                                <input type="email" name="email" id="email" required/>
+                            </div>
+                            <div className={classes.message_div}>
+                                <label htmlFor="message">Message Here: </label>
+                                <input className={classes.message_div} type="text" name="message" id="message" required/>
+                            </div>
+                            <div className={classes.form_div}>
+                                <input type="submit" value="Submit!"/>
+                            </div>
+                        </form>
+                    </div>
                     <h1>{ props.title }</h1>
-                    <p>This Is Me</p>
-                    <Button color='primary' variant="contained">Click Me</Button>
+                    <p>Thanks For Reaching Out!</p>
+                    <Link to='/resume_projects'> 
+                        <Button color='primary' variant="contained">Check Out My Portfolio</Button>
+                    </Link>
+                    
                 </div>
             </main>
         </div>
